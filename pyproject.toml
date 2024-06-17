@@ -1,0 +1,26 @@
+[project]
+name = "maturin-burn-test"
+version = "0.1.0"
+description = "A test weather burn works together with maturin, especially in different environments like Windows and Linux."
+authors = [{ name = "Tobias Hölzer", email = "tobiashoelzer@hotmail.com" }]
+dependencies = ["typer>=0.12.3", "rich>=13.7.1", "numpy>=2.0.0"]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+maturin-burn-test = "maturin_burn_test.cli:app"
+
+[build-system]
+requires = ["maturin>=1.2,<2.0"]
+build-backend = "maturin"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pip>=24.0",
+]
+
+[tool.maturin]
+python-source = "python"
+module-name = "maturin_burn_test._lowlevel"
+features = ["pyo3/extension-module"]
