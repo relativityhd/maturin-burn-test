@@ -16,7 +16,7 @@ I wanted to check weather the following workflow works:
 2. Run the CLI with two numerical arguments and an optional `--gpu` flag
 3. CLI creates `numpy` arrays based on arguments
 4. Python calls `PyO3` Rust code and passes the numpy arrays
-5. Rust converts `PyO3-numpy` arrays into `ndarrays`, then into `burn` data objects and then into `burn` tensor objects
+5. Rust converts `PyO3-numpy` arrays into `slice`, then into `burn` data objects and then into `burn` tensor objects
     - Depending on the `--gpu` flag, the tensors are either created with the `WGPU` backend or with the `NDArray` backend
 7. Doing a calculation (simple `add`) with the tensors and store the result in a new tensor
 8. Converting the new tensor all the way back to numpy and printing the contents from python
